@@ -1,0 +1,135 @@
+
+
+
+.btn {
+    padding: 6px 10px;}
+.top-img{
+	width: 100%;
+}
+.mycolumn{
+	padding: 0;
+}
+.h3, h3 {
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "宋体";
+}
+.img {
+    width: 100%;
+}
+.mycolumn1{
+	padding: 0;
+	border-radius: 0px;
+}
+.sex{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+.sex .col-md-12{
+	padding: 0;
+}
+.sex .col-md-4{
+	padding-right: 0;
+}
+.sex1{
+  opacity:0.4; 
+  height: 100%;
+  width: 100%;
+  background-color: #797979;
+  position: absolute;
+  top: 0;
+  left: 0;
+  filter:alpha(opacity=40);
+}
+.content{
+	position: absolute;
+	bottom: 40%;
+	left: 0;
+	width: 100%;
+	margin-top: -20px;
+	background-color: white;
+}
+.seximg{
+	position: absolute;
+	bottom: 20%;
+	left: 0;
+	width: 100%;
+	margin-top: -20px;
+	background-color: white;
+}
+.content h3{
+	text-align: center;
+	line-height: 50px;
+	border-bottom: 1px solid black;
+}
+.conimg{
+	text-align: center;
+}
+.content img{
+	width: 60%;
+}
+.se_title{
+  font-size: 13px;
+  color: #606060;
+  text-align: center;
+}
+.se_cen{
+  font-size: 11px;
+  color: #949494;
+  text-align: center;
+}
+.fg button{
+	padding: 0;
+	border: none;
+}
+.fg img{
+	width: 100%;
+}
+.form-control{
+	width: 70%;
+	margin-left: 10%;
+}
+.col-sm-2{
+	margin-left: 47px;
+}
+#style button img{
+	border-radius: 13px;
+}
+.mybut{
+	text-align: center;
+	padding-top: 30px ;
+	padding-bottom: 50px;
+} 
+.mybut button{
+	padding: 6px 24px;
+}
+@media only screen and (max-width: 750px){
+  /*html {
+    font-size: 150% !important;
+  }*/
+ .col-md-4 {
+    width: 33.33333333%;
+    float: left;
+}
+.col-md-6 {
+    width: 47%;
+    float: left;
+    padding-right: 0;
+    padding-bottom: 10px;
+    
+}
+.mycolumn2{
+	width: 45%;
+	padding-bottom: 20px;
+}
+.btn-default {
+    color: #7b7b7b;
+    background-color: #f1f1f1;
+    border-color: #ccc;
+}
+
+
+}

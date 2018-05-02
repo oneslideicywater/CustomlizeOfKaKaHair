@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- 新 Bootstrap 核心 CSS 文件 -->
+		<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<!--我的样式-->
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+		<!-- HTML5 Shiv 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+		<!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+		<!--[if lt IE 9]>
+         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <![endif]-->
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="row clearfix">
+				<div class="col-md-12 column mycolumn">
+					<img class="top-img" alt="图片" src="img/1.jpg" />
+				</div>
+			</div>
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<h3>
+				亲耐滴，这里填写您的基本信息哦~
+			</h3>
+					<div class="row clearfix">
+						<div class="col-md-4 column">
+							<button type="button" class="btn btn-default btn-block" id="xb">选择性别</button>
+						</div>
+						<div class="col-md-4 column">
+							<button type="button" class="btn btn-default btn-block" id="nl">设置年龄</button>
+						</div>
+						<div class="col-md-4 column">
+							<button type="button" class="btn btn-default btn-block" id="sgtz">身高体重</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<h3>
+				请您选择一下详细信息哦~
+			</h3>
+					<div class="row clearfix">
+						<div class="col-md-4 column mycolumn2">
+							<button id="fs" type="button" class="btn btn-default btn-block mycolumn1"><img class='img' src='img/2_03.jpg'/></button>
+						</div>
+						<div class="col-md-4 column mycolumn2">
+							<button id="tx" type="button" class="btn btn-default btn-block mycolumn1"><img class='img' src='img/3_03.jpg'/></button>
+						</div>
+						<div class="col-md-4 column mycolumn2" style="padding-bottom: 0px;">
+							<button id="lx" type="button" class="btn btn-default btn-block mycolumn1"><img class='img' src='img/4_03.jpg'/></button>
+						</div>
+					</div>
+					<div class="row clearfix">
+						<div class="col-md-12 column">
+							<h3>
+						还有您的发质哦~
+					</h3>
+							<div class="row clearfix">
+								<div class="col-md-4 column">
+									<button id="fz" type="button" class="btn btn-default btn-block">选择发质</button>
+								</div>
+								<div class="col-md-4 column">
+									<button id="fl" type="button" class="btn btn-default btn-block">选择发量</button>
+								</div>
+								<div class="col-md-4 column">
+								</div>
+							</div>
+							<div class="row clearfix">
+								<div class="col-md-12 column">
+									<h3>
+								选一款您最喜欢的风格吧~
+							</h3>
+									<div id="style">
+										<div class="row clearfix">
+											<div class="col-md-6 column fg">
+												<button type="button" class="btn btn-default btn-block"><img src="img/风格/fg_1.png"/></button>
+											</div>
+											<div class="col-md-6 column fg">
+												<button type="button" class="btn btn-default btn-block"><img src="img/风格/fg_2.png"/></button>
+											</div>
+										</div>
+										<div class="row clearfix">
+											<div class="col-md-6 column fg">
+												<button type="button" class="btn btn-default btn-block"><img src="img/风格/fg_3.png"/></button>
+											</div>
+											<div class="col-md-6 column fg">
+												<button type="button" class="btn btn-default btn-block"><img src="img/风格/fg_4.png"/></button>
+											</div>
+										</div>
+										<div class="row clearfix">
+											<div class="col-md-6 column fg">
+												<button type="button" class="btn btn-default btn-block"><img src="img/风格/fg_5.png"/></button>
+											</div>
+											<div class="col-md-6 column fg">
+												<button type="button" class="btn btn-default btn-block"><img src="img/风格/fg_6.png"/></button>
+											</div>
+										</div>
+									</div>
+									<div class="row clearfix mybut">
+										<div class="col-md-12 column">
+											<button id="submit" type="button" class="btn btn-lg btn-danger">提交</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--性别选择-->
+		<div class="container sex xb" style="display: none;">
+			<div class="sex1"></div>
+			<div class="row clearfix content">
+				<div class="col-md-12 column">
+					<h3>选择性别</h3>
+					<div class="row clearfix">
+						<div class="col-md-6 column">
+							<button type="button" class="btn btn-default btn-block">男</button>
+						</div>
+						<div class="col-md-6 column">
+							<button type="button" class="btn btn-default btn-block">女</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--设置年龄-->
+		<div class="container sex nl" style="display: none;">
+			<div class="sex1"></div>
+			<div class="row clearfix content">
+				<div class="col-md-12 column">
+					<h3>设置年龄</h3>
+					<div class="row clearfix">
+						<div class="col-md-12 column">
+							<form class="form-horizontal" role="form">
+								<div class="form-group">
+									<div class="col-sm-10">
+										<input placeholder="请输入整数年龄" class="form-control" id="inputEmail3" type="text" onkeyup="value=value.replace(/[^\d]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-2 col-sm-10" style="text-align: center;">
+										<button type="button" class="btn btn-default">确定</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--身高体重-->
+		<div class="container sex sgtz" style="display: none;">
+			<div class="sex1"></div>
+			<div class="row clearfix content">
+				<div class="col-md-12 column">
+					<h3>身高体重</h3>
+					<div class="row clearfix">
+						<div class="col-md-12 column">
+							<form class="form-horizontal" role="form">
+								<div class="form-group">
+									<label for="inputEmail3" class="col-sm-2 control-label">身高：</label>
+									<div class="col-sm-10">
+										<input placeholder="单位：cm" class="form-control" id="inputEmail3" type="text" onkeyup="value=value.replace(/[^\d]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="inputPassword3" class="col-sm-2 control-label">体重：</label>
+									<div class="col-sm-10">
+										<input placeholder="单位：kg" class="form-control" id="inputPassword3" type="text" onkeyup="value=value.replace(/[^\d]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-2 col-sm-10" style="text-align: center;">
+										<button type="button" class="btn btn-default">确定</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--选择肤色-男-->
+		<div class="container sex fsnan" style="display: none;">
+			<div class="sex1"></div>
+			<div class="row clearfix content seximg">
+				<div class="col-md-12 column">
+					<h3>选择肤色</h3>
+					<div class="row clearfix">
+						<div class="col-md-6 column conimg">
+							<img alt="140x140" src="img/c_03.jpg" />
+							<h4>偏白皮肤</h4>
+						</div>
+						<div class="col-md-6 column conimg">
+							<img alt="140x140" src="img/c_05.jpg" />
+							<h4>偏红皮肤</h4>
+						</div>
+					</div>
+					<div class="row clearfix">
+						<div class="col-md-6 column conimg">
+							<img alt="140x140" src="img/c_09.jpg" />
+							<h4>偏黄皮肤</h4>
+						</div>
+						<div class="col-md-6 column conimg">
+							<img alt="140x140" src="img/c_10.jpg" />
+							<h4>偏黑皮肤</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--选择肤色-女-->
+		<div class="container sex fsnv" style="display: none;">
+			<div class="sex1"></div>
+			<div class="row clearfix content seximg">
+				<div class="col-md-12 column">
+					<h3>选择肤色</h3>
+					<div class="row clearfix">
+						<div class="col-md-6 column conimg">
+							<img alt="140x140" src="img/肤色/fs_1.png" />
+							<h4>偏白皮肤</h4>
+						</div>
+						<div class="col-md-6 column conimg">
+							<img alt="140x140" src="img/肤色/fs_2.png" />
+							<h4>偏红皮肤</h4>
+						</div>
+					</div>
+					<div class="row clearfix">
+						<div class="col-md-6 column conimg">
+							<img alt="140x140" src="img/肤色/fs_3.png" />
+							<h4>偏黄皮肤</h4>
+						</div>
+						<div class="col-md-6 column conimg">
+							<img alt="140x140" src="img/肤色/fs_4.png" />
+							<h4>偏黑皮肤</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--选择体型-->
+		<div class="container sex tx" style="display: none;">
+			<div class="sex1"></div>
+			<div class="row clearfix content seximg">
+				<div class="col-md-12 column">
+					<h3>选择体型</h3>
+					<div class="row clearfix">
+						<div class="col-md-4 column conimg">
+							<img alt="140x140" src="img/b_03.jpg" />
+							<h4 class='se_title'>倒梯形</h4>
+							<h5 class='se_cen'>宽肩，腰臀窄</h5>
+						</div>
+						<div class="col-md-4 column conimg">
+							<img alt="140x140" src="img/b_05.jpg" />
+							<h4 class='se_title'>倒三角形</h4>
+							<h5 class='se_cen'>宽肩，腰臀很窄</h5>
+						</div>
+						<div class="col-md-4 column conimg">
+							<img alt="140x140" src="img/b_07.jpg" />
+							<h4 class='se_title'>矩形</h4>
+							<h5 class='se_cen'>肩腰臀宽度一样</h5>
+						</div>
+					</div>
+					<div class="row clearfix">
+						<div class="col-md-4 column conimg">
+							<img alt="140x140" src="img/b_12.jpg" />
+							<h4 class='se_title'>椭圆形</h4>
+							<h5 class='se_cen'>腹部比较圆润</h5>
+						</div>
+						<div class="col-md-4 column conimg">
+							<img alt="140x140" src="img/b_13.jpg" />
+							<h4 class='se_title'>正三角形</h4>
+							<h5 class='se_cen'>肩部比腰部窄</h5>
+						</div>
+						<div class="col-md-4 column conimg">
+							<img alt="140x140" src="img/a_15.jpg" style="width: 76%;" />
+							<h4 class='se_title'>不清楚</h4>
+							<h5 class='se_cen'>不知道自己体型</h5>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--选择脸型-->
+		<div class="container sex lx" style="display: none;">
+			<div class="sex1"></div>
+			<div class="row clearfix content seximg">
+				<div class="col-md-12 column">
+					<h3>选择脸型</h3>
+					<div class="row clearfix">
+						<div class="col-md-4 column conimg">
+							<img alt="140x140" src="img/脸型/lx_1.png" />
+							<h4 class='se_title'>椭圆脸</h4>
+						</div>
+						<div class="col-md-4 column conimg">
+							<img alt="140x140" src="img/脸型/lx_2.png" />
+							<h4 class='se_title'>方形脸</h4>
+						</div>
+						<div class="col-md-4 column conimg">
+							<img alt="140x140" src="img/脸型/lx_3.png" />
+							<h4 class='se_title'>菱形脸</h4>
+						</div>
+					</div>
+					<div class="row clearfix">
+						<div class="col-md-4 column conimg">
+							<img alt="140x140" src="img/脸型/lx_4.png" />
+							<h4 class='se_title'>三角脸</h4>
+						</div>
+						<div class="col-md-4 column conimg">
+							<img alt="140x140" src="img/脸型/lx_5.png" />
+							<h4 class='se_title'>方形脸</h4>
+						</div>
+						<div class="col-md-4 column conimg">
+							<img alt="140x140" src="img/脸型/lx_6.png" />
+							<h4 class='se_title'>圆形脸</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--选择发质-->
+		<div class="container sex fz" style="display: none;">
+			<div class="sex1"></div>
+			<div class="row clearfix content seximg" style="bottom: 40%;">
+				<div class="col-md-12 column">
+					<h3>选择发质</h3>
+					<div class="row clearfix">
+						<div class="col-md-4 column conimg">
+							<img alt="140x140" src="img/发质/fz_1.png" />
+						</div>
+						<div class="col-md-4 column conimg">
+							<img alt="140x140" src="img/发质/fz_2.png" />
+						</div>
+						<div class="col-md-4 column conimg">
+							<img alt="140x140" src="img/发质/fz_3.png" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--选择发量-->
+		<div class="container sex fl" style="display: none;">
+			<div class="sex1"></div>
+			<div class="row clearfix content seximg" style="bottom: 40%;">
+				<div class="col-md-12 column">
+					<h3>选择发质</h3>
+					<div class="row clearfix">
+						<div class="col-md-4 column conimg">
+							<h4 class='se_title'>稀疏</h4>
+						</div>
+						<div class="col-md-4 column conimg">
+							<h4 class='se_title'>正常</h4>
+						</div>
+						<div class="col-md-4 column conimg">
+							<h4 class='se_title'>稠密</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</body>
+
+</html>
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="js/myjs.js" type="text/javascript" charset="utf-8"></script>

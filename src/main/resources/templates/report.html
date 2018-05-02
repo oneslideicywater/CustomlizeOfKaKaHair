@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- 新 Bootstrap 核心 CSS 文件 -->
+		<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<!--我的样式-->
+		<link rel="stylesheet" type="text/css" href="css/report_style.css" />
+
+		<!-- HTML5 Shiv 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+		<!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+		<!--[if lt IE 9]>
+         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <![endif]-->
+		<title></title>
+	</head>
+	<body>
+		<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<img alt="140x140" src="img/reportimg/top.png" />
+			<div class="row clearfix top" style="border-bottom: 1px solid #797979;">
+				<div class="col-md-4 column">
+					<h3 class="text-center jiahei">
+						基本信息
+					</h3>
+				</div>
+				<div class="col-md-4 column" style="border-left: 1px solid #797979;;">
+					<h3 class="jiahei">
+						脸型发型
+					</h3>
+				</div>
+				<div class="col-md-4 column" style="border-left: 1px solid #797979;;">
+					<h3 class="text-center jiahei">
+						体型分析
+					</h3>
+				</div>
+			</div>
+			<div class="row clearfix top">
+				<div class="col-md-6 column">
+					<h3 class="text-center jiahei">
+						肤色分析
+					</h3>
+				</div>
+				<div class="col-md-6 column" style="border-left: 1px solid #797979;;">
+					<h3 class="text-center jiahei">
+						护理方法
+					</h3>
+				</div>
+			</div>
+			<div class="row clearfix fenge">
+				<div class="col-md-12 column">
+					<h3 class="text-center">
+						<div class="title">
+							1&nbsp;|&nbsp;基本信息
+						</div>
+					</h3>
+					<div class="touxing">
+						<img class="tx" alt="140x140" src="img/reportimg/touxing.png" />
+					</div>
+					<h3 class="text-center">
+						年龄：21岁 身高：185CM 体重：61KG
+					</h3>
+					<div class="touxing">
+						<img class="bmi" alt="140x140" src="img/reportimg/bmi.png" />
+					</div>
+					<h3 class="text-center">
+						BMI指数：17.82(偏瘦)<br />
+						体质指数(BMI)=体重(KG)/身高(M)2
+					</h3>
+					<h3 class="text-left">
+						你的BMI值处于偏瘦水平，适当调整下饮食结构，多吃长肉，改善过于单薄的身材，才是注意的重点。
+					</h3>
+				</div>
+			</div>
+			<div class="row clearfix fenge">
+				<div class="col-md-12 column">
+					<h3 class="text-center">
+						<div class="title">
+							2&nbsp;|&nbsp;脸型&发型
+						</div>
+					</h3>
+					<div class="touxing">
+						<img class="tx" alt="140x140" src="img/reportimg/lianxing.png" />
+					</div>
+					<h3 class="text-center jiahei" >
+						你的脸型：鹅蛋脸
+					</h3>
+					<h3 class="jiahei text-left">
+						脸型特征
+					</h3>
+					<ol style="list-style-type: none;">
+						<li>
+							a)额头与颧骨基本等宽，比下颚稍宽
+						</li>
+						<li>
+							b)脸宽约是脸长的三分之二
+						</li>
+						<li>
+							c)下巴是微微的圆形
+						</li>
+					</ol>
+				</div>
+			</div>
+			<div class="row clearfix fenge">
+				<div class="col-md-12 column">
+					<div class="touxing">
+						<img class="xing" alt="140x140" src="img/reportimg/xing.png" />
+					</div>
+					<h3 class="jiahei text-left">
+						脸型解说
+					</h3>
+					<p class="text-left">
+						 <!--<em>Git</em> 是一个分布式的版本控制系统，最初由 <strong>Linus Torvalds</strong> 编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在 <small>Ruby</small> 社区中。-->
+					这是完美的脸型，由于脸型的长度与形状平衡，因此多尝试各种发型不会有太大问题，基本上想做任何造型都可以。这种脸型的人，为了突出自己的优点，避免将两侧的头发留得太长，避免把脸显得太圆。
+					</p>
+					<h3 class="jiahei text-left">
+						存在问题
+					</h3>
+					<div class="touxing">
+						<img class="czwt" alt="140x140" src="img/reportimg/czwt.png" />
+					</div>
+				</div>
+			</div>
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<h3 class="jiahei text-left">
+						推荐发型
+					</h3>
+					<div class="touxing">
+						<img class="tjfx" alt="140x140" src="img/reportimg/tjfx1.png" />
+					</div>
+					<div class="touxing">
+						<img class="tjfx" alt="140x140" src="img/reportimg/tjfx2.png" />
+					</div>
+					<div class="touxing">
+						<img class="tjfx" alt="140x140" src="img/reportimg/tjfx3.png" />
+					</div>
+					<div class="touxing">
+						<img class="tjfx" alt="140x140" src="img/reportimg/tjfx4.png" />
+					</div>
+					<div class="touxing">
+						<img class="tjfx" alt="140x140" src="img/reportimg/tjfx5.png" />
+					</div>
+				</div>
+			</div>
+			<div class="row clearfix fenge">
+				<div class="col-md-12 column">
+					<h3 class="text-center">
+						<div class="title">
+							3&nbsp;|&nbsp;体型分析
+						</div>
+					</h3>
+					<div class="touxing">
+						<img class="tx" alt="140x140" src="img/reportimg/tixing.png" />
+					</div>
+					<h3 class="text-center jiahei" >
+						你的体型：矩形
+					</h3>
+					<p class="text-left">
+						 矩形身材就是肩部、腰部、臀部基本都是一个宽度，像一个移动的长方体。
+					</p>
+					<h3 class="jiahei text-left">
+						错误穿法
+					</h3>
+					<p class="text-left">
+						 不要尝试双排扣，这样只会加重矩形身材的印象。胶印的方块照片图案T恤慎选，一样会加深矩形印象，不要穿无袖衬衫。
+					</p>
+				</div>
+			</div>
+			<div class="row clearfix fenge">
+				<div class="col-md-12 column">
+					<h3 class="text-center">
+						<div class="title">
+							4&nbsp;|&nbsp;肤色分析
+						</div>
+					</h3>
+					<h3 class="jiahei text-left">
+						推荐发型
+					</h3>
+					<div class="touxing">
+						<img class="tjfx" alt="140x140" src="img/reportimg/fs.png" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row clearfix fenge">
+		<div class="col-md-12 column">
+			<h3 class="text-center">
+				<div class="title">
+							5&nbsp;|&nbsp;护理方法
+						</div>
+			</h3>
+			<h3 class="text-left jiahei">
+				基本信息
+			</h3>
+			<div class="touxing">
+						<img class="bmi" alt="140x140" src="img/reportimg/hulifangfa.png" />
+					</div>
+			<h3 class="text-center jiahei" >
+						你的发质：油性、细软、发量少
+					</h3>
+			<p class="text-left">
+				油性头发主要是因为皮脂分泌过多，从而使头发油腻，且大多与荷尔蒙分泌紊乱、遗传、精神压力大、过度梳理以及经常进食高脂食物有关
+			</p>
+			<p class="text-left">
+				 了解发质细软和发量少是两件不同的事，发质细但是同时发量多看上去也是相当饱满的细软发质，细软发质会无力地趴在头发上，只要正确的修剪和造型技巧，是可以被打理的很漂亮的。
+			</p>
+			<h3 class="text-left jiahei">
+				护理建议
+			</h3>
+			<ol style="list-style-type: none;" class="text-left">
+				<li>
+					1、不要过量使用造型产品<br />
+					其次，对于想要塑造丰盈效果的人来说，减少洗发的次数也能够起到一定的帮助作用哦!
+				</li>
+				<li>
+					2、细心呵护头发<br/>
+谨慎使用造型工具，造型工具高温会破坏头发的角质层蛋白质。避免过热的水洗头发、用粗糙的毛巾擦头发。
+				</li>
+				<li>
+					3、油性发质的护理<br/>
+少吃辛辣油腻的食物，尽量多吃一点水果和蔬菜，
+而且要比一般人多喝水，样会有助减少皮脂腺分泌
+。护发素只宜涂在发梢上，不要抹在头皮上
+				</li>
+				<li>
+					4、洗护用品选择<br/>
+不应该再用标有“柔顺”“顺滑”字样的洗发水，
+会令发丝垂顺，进而更紧贴头皮，让发量看起来更
+少。 细软且发量少的人，应该选择能让头发轻盈、
+柔软有弹性，发根也更蓬松的洗发水。
+				</li>
+			</ol>
+		</div>
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<img alt="140x140" src="img/reportimg/erweima.png" />
+		</div>
+	</div>
+</div>
+	</body>
+</html>
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
