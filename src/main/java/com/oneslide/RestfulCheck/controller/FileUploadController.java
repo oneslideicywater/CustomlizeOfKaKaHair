@@ -48,7 +48,7 @@ public class FileUploadController {
         this.storageService = storageService;
     }
 
-    @GetMapping("/")
+    @GetMapping(path="/JoinUsWithFileUpload")
     public String listUploadedFiles(Model model) throws IOException {
 
         model.addAttribute("files", storageService.loadAll().map(
@@ -63,35 +63,64 @@ public class FileUploadController {
     @GetMapping("/files/{filename:.+}")
     @ResponseBody
     public ResponseEntity<Resource> serveFile(@PathVariable String filename) {
-
+        //load file as Resource with file name
         Resource file = storageService.loadAsResource(filename);
         return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION,
                 "attachment; filename=\"" + file.getFilename() + "\"").body(file);
     }
    
     @Transactional
-    @PostMapping("/")
-    public String handleFileUpload(@RequestParam("file") MultipartFile file,@RequestParam("gender")String gender,
+    @PostMapping("/HandleFileUpload")
+    public String handleFileUpload(
+    		@RequestParam("file") MultipartFile file,
+    		@RequestParam("gender")String gender,
     		@RequestParam("style")String style,
+    		@RequestParam("feature")String feature, //脸型
             RedirectAttributes redirectAttributes) {
         //这里执行一些操作
     	//获取待存储图片在数据库中的Id
+    	//异常检测
+    	if(gender.isEmpty()||style.isEmpty()||feature.isEmpty()) {
+    		redirectAttributes.addFlashAttribute("message",
+                    "invalid Parameter,you may be miss some Input" + "!");
+    		System.out.println("I am executed to check parameter!");
+    		return "redirect:/JoinUsWithFileUpload";
+    	}
+    	if(file.isEmpty()) {
+    		redirectAttributes.addFlashAttribute("message",
+                    "You haven't choose uploaded " + "File" + "!");
+    		return "redirect:/JoinUsWithFileUpload";
+    	}
     	long fCandidate=profileService.getImageFileName();
         
+    	//按照数据库Profile ID命名上传的图片
         storageService.store(file,fCandidate);
+        //从数据库中获取Profile对象，便于存储
         Profile profile=profileService.findProfileById(fCandidate);
+        
+        //合成合理的图片路径，路径为，"已定义路径下/图片数据库ID.扩展名"
         StorageProperties p=new StorageProperties();
         int m=file.getOriginalFilename().split("\\.").length-1;
-        String mString=""+p.getLocation()+"/"+fCandidate+"."+file.getOriginalFilename().split("\\.")[m];
+        String mString=""+p.getLocation()+"/"+fCandidate+"."
+                       +file.getOriginalFilename().split("\\.")[m];
+        
+        //将格式化后图片路径保存至数据库
         profile.setImage(mString);
         
+        //类型转换
         if(Integer.parseInt(gender)==1) {
         	profile.setGender(true);
         }else {
         	profile.setGender(false);
         }
-        profile.setStyle(Integer.parseInt(style));
         
+        //解析用户输入表单信息
+        
+        //风格一共6种
+      
+         profile.setStyle(style);
+      
+         profile.setFeature(feature);
         //保存
         profileService.saveProfile(profile);
         
@@ -101,9 +130,10 @@ public class FileUploadController {
         redirectAttributes.addFlashAttribute("message",
                 "You successfully uploaded " + mString + "!");
 
-        return "redirect:/";
+        return "redirect:/JoinUsWithFileUpload";
     }
 
+    //异常处理句柄：处理StorageFileNotFoundException,定义在storage包里
     @ExceptionHandler(StorageFileNotFoundException.class)
     public ResponseEntity<?> handleStorageFileNotFound(StorageFileNotFoundException exc) {
         return ResponseEntity.notFound().build();

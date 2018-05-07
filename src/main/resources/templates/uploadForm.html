@@ -1,18 +1,52 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-
-	<div th:if="${message}">
-		<h2 th:text="${message}"/>
-	</div>
+    <head>
+        <style>
+        table{
+          color:white;
+          
+        }
+            #upload{
+                width:420px;
+                height:340px;
+                color:white;
+                font-weight:600;
+                position:absolute;
+                margin-top:120px;
+                margin-left:440px;
+                background-color:rgba(1,10,6,0.6);
+                border-radius:5%;
+                
+            }
+            input{
+                width:320px;
+                height:30px;
+                margin-top:30px;
+            }
+           
+            #anchor{
+               margin-left:-30px;
+               background-color:green;
+               color:white;
+               border-radius:5%;
+               border:1px solid gray;
+            }
+            #anchor:hover{
+               -webkit-transform:scale(1.1);
+            }
+        </style>
+    </head>
+	
 
 	<div>
-		<form method="POST" enctype="multipart/form-data" action="/">
+		<form id="upload" method="POST" enctype="multipart/form-data" action="/HandleFileUpload">
 			
-			 <label>Gender</label><input type="text" name="gender">
-			 <label>style</label> <input type="text" name="style">
-			<table>
+			 <label>Gender:</label><input type="text" name="gender">
+			 <label>#Style:</label> <input type="text" name="style">
+			 <label>Feature:</label><input type="text" name="feature">
+			<table id="subm">
 				<tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
-				<tr><td></td><td><input type="submit" value="Upload" /></td></tr>
+				<tr><td></td><td><input type="submit" value="Upload" id="anchor"/></td></tr>
 			</table>
 		</form>
 	</div>
@@ -24,5 +58,9 @@
 		</ul>
 	</div>
 
+    <!-- 提示信息 上传成功-->
+    <div th:if="${message}">
+		<h2 th:text="${message}"/>
+	</div>
 </body>
 </html>

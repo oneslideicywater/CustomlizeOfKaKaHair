@@ -25,27 +25,43 @@ public class ProfileService {
 	@Autowired
 	ProfileRepository profileRepository;
 	
-	//筛选算法
-	public List<Profile> select(Customer customer,String depict){
-		 List<Profile> list=profileRepository.findAllQulified(customer.isGender(),customer.getStyle());
-		//筛选算法
-		/** if(list.size()>=5) {
-			 return list;
-		 }else {
-			 List<Profile> listtemp=new ArrayList<>(); 
-			 int m=list.size();
-			 while(listtemp.size()<=5) {
-			     long selectpro=(long)Math.random()*m;
-			     if(!listtemp.contains(profileRepository.findById(selectpro))) {
-			    	 listtemp.add(profileRepository.findById(selectpro));
-			     }
-			 }			 
-			 return listtemp;
-		 }**/
-		 return list;
+	//筛选算法，通过性别，风格，脸型
+	public List<Profile> select(int gender,String style,String feature){
+	     List<Profile> list=profileRepository.Qulified(gender==1, style, feature);
+	     
+	     if(list.size()<=5) {
+	         //放宽条件进行查询
+	    	 list=profileRepository.findByGender(gender==1);
+	    	 if(list.size()<=5) {
+	    		 return list;
+	    	 }else {
+	    		 return this.truncateProfile(list);
+	    	 }
+	     }else{
+	    	 return this.truncateProfile(list);
+	     }
+	     
+		 
+	}
+	
+	//修剪大于5个的集合
+	private List<Profile> truncateProfile(List<Profile> list){
+		List<Profile> listtemp=new ArrayList<Profile>();
+		for(int i=0;i<5;i++) {
+			 int temp=(int) Math.floor(Math.random()*list.size());
+			 listtemp.add(list.get(temp));
+			 list.remove(temp);
+		}
+		
+		return listtemp;
 	}
 	
 	
+	
+	
+	
+	
+	//存储一个空profile,返回id
 	public long getImageFileName() {
 		Profile profiletemp=new Profile();
 		Profile profile=profileRepository.save(profiletemp);

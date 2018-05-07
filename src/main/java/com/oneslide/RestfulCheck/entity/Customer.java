@@ -5,24 +5,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import com.oneslide.RestfulCheck.Input.CustomerForm;
+
 
 @Entity
 public class Customer {
-	public Customer(long id, long telephone, boolean gender, double stature, double weight, String complexion,
-			String somatotype, String feature, int hairQuality, int hairVolume) {
-		super();
-		this.id = id;
-		this.telephone = telephone;
-		this.gender = gender;
-		this.stature = stature;
-		this.weight = weight;
-		this.complexion = complexion;
-		this.somatotype = somatotype;
-		this.feature = feature;
-		this.hairQuality = hairQuality;
-		this.hairVolume = hairVolume;
-	}
+
 
 	public Customer() {
 	}
@@ -33,7 +20,7 @@ public class Customer {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
-	private long telephone;
+	
 	private int age;
 	private boolean gender;
 	private double stature;
@@ -41,41 +28,39 @@ public class Customer {
 	private String complexion;
 	private String somatotype;
 	private String feature;
-	private int hairQuality;
-	private int hairVolume;
-	private int style;
 	
-    public static Customer transformIntoCustomer(CustomerForm input) {
-    	Customer cus=new Customer();
-    	cus.setAge(input.getAge());
-    	cus.setTelephone(input.getTelephone());
-    	cus.setGender(input.getGender()==1);
-    	cus.setStature(input.getStature());
-    	cus.setWeight(input.getWeight());
-    	cus.setComplexion(input.getComplexion());
-    	cus.setFeature(input.getFeature());
-    	cus.setSomatotype(input.getSomatotype());
-    	cus.setHairQuality(input.getHairQuality());
-    	cus.setHairVolume(input.getHairVolume());
-    	cus.setStyle(input.getStyle());
-    	return cus;
-    	
-    }
-	public long getTelephone() {
-		return telephone;
+	private String nickname;
+	private String headImageURL;
+	private long openid;
+	//油性程度
+    private int HairOilness;
+		
+		//软硬程度
+    private int HairToughness;
+		
+		//发量
+	private int HairVolume;
+		
+		//喜欢的风格
+	private String FavorStyle;
+	
+	//还有其他风格
+	
+	
+	
+
+	
+
+
+	public int getAge() {
+		return age;
 	}
 
-	public void setTelephone(long telephone) {
-		this.telephone = telephone;
+	public void setAge(int age) {
+		this.age = age;
 	}
 
-	public boolean isGender() {
-		return gender;
-	}
-
-	public void setGender(boolean gender) {
-		this.gender = gender;
-	}
+	
 
 	public double getStature() {
 		return stature;
@@ -117,24 +102,68 @@ public class Customer {
 		this.feature = feature;
 	}
 
-
-	public int getHairQuality() {
-		return hairQuality;
+	public int getHairOilness() {
+		return HairOilness;
 	}
 
-
-	public void setHairQuality(int hairQuality) {
-		this.hairQuality = hairQuality;
+	public void setHairOilness(int hairOilness) {
+		HairOilness = hairOilness;
 	}
 
+	public int getHairToughness() {
+		return HairToughness;
+	}
+
+	public void setHairToughness(int hairToughness) {
+		HairToughness = hairToughness;
+	}
 
 	public int getHairVolume() {
-		return hairVolume;
+		return HairVolume;
 	}
 
-
 	public void setHairVolume(int hairVolume) {
-		this.hairVolume = hairVolume;
+		HairVolume = hairVolume;
+	}
+
+	public String getFavorStyle() {
+		return FavorStyle;
+	}
+
+	public void setFavorStyle(String favorStyle) {
+		FavorStyle = favorStyle;
+	}
+
+	public boolean isGender() {
+		return gender;
+	}
+
+	public void setGender(boolean gender) {
+		this.gender = gender;
+	}
+
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
+	public String getHeadImageURL() {
+		return headImageURL;
+	}
+
+	public void setHeadImageURL(String headImageURL) {
+		this.headImageURL = headImageURL;
+	}
+
+	public long getOpenid() {
+		return openid;
+	}
+
+	public void setOpenid(long openid) {
+		this.openid = openid;
 	}
 
 	public long getId() {
@@ -145,19 +174,11 @@ public class Customer {
 		this.id = id;
 	}
 
-	public int getAge() {
-		return age;
-	}
+	
 
-	public void setAge(int age) {
-		this.age = age;
-	}
 
-	public int getStyle() {
-		return style;
-	}
 
-	public void setStyle(int style) {
-		this.style = style;
-	}
+	
+
+	
 }

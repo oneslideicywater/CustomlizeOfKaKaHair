@@ -1,15 +1,18 @@
 // 全局变量
+var id = 5 //
+
 var gender = 0 //性别
-var age = 0 //年龄
-var stature = 0 //身高
-var weight = 0 //体重
-var complexion = 0 //肤色
-var somatotype = 0 //体型
-var feature = 0 //脸型
-var quality = 0 //发质
-var quantity = 0 //发量
-var styleId = 0
-var styleDescription = 0
+var age = 30 //年龄
+var stature = 1.70 //身高
+var weight =60 //体重
+var complexion = 2 //肤色
+var somatotype = 2//体型
+var feature = 1 //脸型
+var HairOilness=1;
+var HairToughness=1
+var HairVolume = 3 //发量
+
+var style = 0
 
 //性别
 $(document).ready(function() {
@@ -116,11 +119,11 @@ $(document).ready(function() {
 	});
 	$(".fz .col-md-4").click(function() {
 		var index = $(".fz .col-md-4").index(this);
-		quality = index
+		hairQuality = index
 	});
 	$(".fz").click(function() {
 		$(".fz").css("display", "none");
-		console.log("quality:" + quality)
+		console.log("quality:" + hairQuality)
 	});
 });
 //发量
@@ -130,11 +133,11 @@ $(document).ready(function() {
 	});
 	$(".fl .col-md-4").click(function() {
 		var index = $(".fl .col-md-4").index(this);
-		quantity = index
+		hairVolume = index
 	});
 	$(".fl").click(function() {
 		$(".fl").css("display", "none");
-		console.log("quantity:" + quantity)
+		console.log("quantity:" + hairVolume)
 	});
 });
 //风格样式
@@ -144,8 +147,8 @@ $(document).ready(function() {
 		$(this).css("border", "1px solid #000");
 		var index = $("#style button").index(this);
 
-		styleDescription = index
-		console.log("styleDescription:" + styleDescription)
+		style = index
+		console.log("style:" + style)
 	});
 
 });
@@ -159,6 +162,8 @@ var data = {}
 $(document).ready(function() {
 	$("#submit").click(function() {
 		data = {
+			"id":id,
+			
 			"gender": gender,
 			"age": age,
 			"stature": stature,
@@ -166,14 +171,15 @@ $(document).ready(function() {
 			"complexion": complexion,
 			"somatotype": somatotype,
 			"feature": feature,
-			"quality": quality,
-			"quantity": quantity,
-			"styleDescription": styleDescription
+			"HairOilness":HairOilness,
+			"HairToughness":HairToughness,
+			"HairVolume": HairVolume,
+			//"style": style
 		}
 		var postArray = new Array();
 		postArray.push(data);
 		$.ajax({
-			url: "url",
+			url: "/customer/"+id+"/report",
 			type: 'post',
 			data: {
 				data: JSON.stringify(postArray)
@@ -200,6 +206,6 @@ function requset(str) {
 			document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
 		}
 	}
-	xmlhttp.open("GET", "/try/ajax/getcustomer.php?q=" + str, true);
+	xmlhttp.open("GET", "localhost:8080/customer/"+id+"/report", true);
 	xmlhttp.send();
 }

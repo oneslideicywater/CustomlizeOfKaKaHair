@@ -8,11 +8,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.oneslide.RestfulCheck.Input.CustomerForm;
 import com.oneslide.RestfulCheck.entity.Customer;
+import com.oneslide.RestfulCheck.output.Report;
 import com.oneslide.RestfulCheck.service.AnalysisService;
 import com.oneslide.RestfulCheck.service.CustomerService;
 import com.oneslide.RestfulCheck.service.ProfileService;
@@ -35,15 +38,16 @@ public class CustomerController {
     AnalysisService analysisService;
     
     
-
-   //save the customer 
-	@PostMapping(path="/customer",consumes="application/json")
-	public String recordCustomer(Customer customer) {
-		customerService.saveCustomer(customer);
-		return "Customer saved";
-	}
-	
-	/**
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /**
 	 * @StateImport
 	 *     CustomerInformation
 	 * @StateExport
@@ -57,9 +61,45 @@ public class CustomerController {
 		return customer;
 	}
 	
-
 	
+	@RequestMapping(path="/customer/{id}/advice",produces="application/json")
+	public Report returnadvice(@PathVariable("id") long id,Model model) {
+		
+		double bmi=analysisService.calculateBMI(id);
+		
+		String advice=analysisService.BMIAdvice(bmi);
+		Report report=new Report();
+		report.setAdvice(advice);
+		report.setBMI(bmi);
+		return report;
+	}
 	
+    /**
+     * JSON test
+     * */
+	@RequestMapping(path="/customer/{id}/report",produces="application/json",consumes="application/json")
+	public Report advice(@PathVariable("id") long id,@RequestBody CustomerForm input) {
+		
+		double bmi=analysisService.calculateBMI(id);
+		
+		String advice=analysisService.BMIAdvice(bmi);
+		Report report=analysisService.reportStatic(input);
+		report.setAdvice(advice);
+		report.setBMI(bmi);
+		return report;
+	}
+	
+	/*
+	 * 测试Controller,测试点，正确获取表单信息
+	 * 
+	 * 
+	 * **/
+	@RequestMapping(path="/customer/inputTest",produces="application/json",consumes="application/json")
+	public CustomerForm adviceTest(@RequestBody CustomerForm input) {
+		
+	
+		return input;
+	}
 	
 	
 	/**
@@ -68,7 +108,7 @@ public class CustomerController {
 	 *     BMI 
 	 * @StateExport 
 	 * **/
-	@RequestMapping(value="/customize/{id}/bmi",produces="application/json")
+	@RequestMapping(value="/customer/{id}/bmi",produces="application/json")
 	public double getCustomer(@PathVariable("id") long id,Model model) {
 		//commit reset point 1
 	 
@@ -76,22 +116,9 @@ public class CustomerController {
 	    return cus;
 	}
 	
-	@RequestMapping(value="/generate",produces="application/json")
-	public List<Customer> genCustomer() {
-		//commit reset point 1
-		
-		for(int i=0;i<100;i++) {
-			Customer cus=new Customer();
-		    cus.setFeature("round face");
-			
-			cus.setGender(false);
-			cus.setTelephone(123456789);
-			cus.setWeight(90.32);
-			customerService.saveCustomer(cus);
-		}
-		
-	    return customerService.allcustomer();
-	}
+	
+	
+	
 	
 	
 }

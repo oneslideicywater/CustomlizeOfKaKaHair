@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 
+import com.oneslide.RestfulCheck.service.PopulateCustomer;
 import com.oneslide.RestfulCheck.storage.StorageProperties;
 import com.oneslide.RestfulCheck.storage.StorageService;
 
@@ -23,10 +24,15 @@ public class RestfulCheckApplication {
 	
 	
 	@Bean
-	CommandLineRunner init(StorageService storageService) {
+	CommandLineRunner init(StorageService storageService,PopulateCustomer popu) {
 	     return (args) -> {
 	            storageService.deleteAll();
 	            storageService.init();
+	       
+	            popu.populate();
+	            //需要初始化一些用户信息以备测试
+	            
+	         
 	        };
 	}
 }

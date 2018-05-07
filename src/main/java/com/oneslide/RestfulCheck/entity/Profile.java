@@ -24,8 +24,8 @@ public class Profile {
 	 private boolean gender;// 1 male 0 female
 	 @Basic
 	 private String image;
-	 private int style;
-
+	 private String style;
+     private String feature;
 	public long getId() {
 		return id;
 	}
@@ -51,11 +51,21 @@ public class Profile {
 	}
 
 
-	public int getStyle() {
+	
+
+	public String getFeature() {
+		return feature;
+	}
+
+	public void setFeature(String feature) {
+		this.feature = feature;
+	}
+
+	public String getStyle() {
 		return style;
 	}
 
-	public void setStyle(int style) {
+	public void setStyle(String style) {
 		this.style = style;
 	}
 

@@ -23,20 +23,30 @@ public class CustomerService {
 	@Autowired
 	CustomerRepository customerRepository;
 	
+	
+	
+	//数据库存储
 	public long saveCustomer(Customer customer) {
 		return customerRepository.save(customer).getId();
 	 
 	}
+	
+	
+	//id查找用户
+	
 	public Customer getCustomer(long id) {
 		Customer customer=customerRepository.findById(id);
-		customer.setTelephone(0); //用户数据保护
+		
 		
 		return customer;
 	}
 	
+	//获取全部注册用户
 	public List<Customer> allcustomer() {
 		
 		List<Customer> list=customerRepository.findAll();
 		return list;
 	}
+	
+	
 }

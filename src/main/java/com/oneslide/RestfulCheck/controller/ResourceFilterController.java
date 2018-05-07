@@ -25,7 +25,7 @@ import com.oneslide.RestfulCheck.service.CustomerService;
 import com.oneslide.RestfulCheck.service.ProfileService;
 
 @RestController
-public class FilterController { 
+public class ResourceFilterController { 
 	
    @Autowired
    CustomerService customerService;
@@ -34,18 +34,11 @@ public class FilterController {
 	
    /*
     *   @StateExport of Customize
+    *   
+    *   @deprecated
     * **/
    
-  @RequestMapping(path="/customer/{id}/report",produces="application/json")
-	public List<Profile> recordCustomer(@PathVariable("id") long id,@RequestParam("depict") String depict,Model model) {
-		Customer customer=customerService.getCustomer(id);
-		if(customer==null) {
-			//页面跳转
-			return null;
-		}
-		List<Profile> list=profileService.select(customer,depict);
-		return list;
-	}
+ 
 	
 	@RequestMapping(path="/report",produces="application/json")
 	public List<Profile> recordCustomer() {
@@ -56,11 +49,18 @@ public class FilterController {
 	
 	//暴露文件为一个URL地址
 	
-	@GetMapping("/report/img/{id}")
+	@GetMapping("/report/img/{id}.jpg")
 	public ResponseEntity<byte[]> getImage(@PathVariable("id") long id) throws IOException{
 		
 		Profile profile=profileService.findProfileById(id);
+		if(profile==null) {
+			 System.out.println("oneslide said:"
+			 		+ "a file requested may be removed from file system,ignore it or"
+			 		+ "BAD FILE IN DATABAE STORAGE FILE,PLEASE RECOVER SOON!");
+			return null;
+		}
 		String pathOfImg=profile.getImage();
+		
 	    File img = new File(pathOfImg);
 	    return ResponseEntity
 	    		.ok()
@@ -69,9 +69,29 @@ public class FilterController {
 	}
 	
 	
+	//给定指定路径名暴露一个图片的URL地址
+	/**
+	 * @param String imgLocalPath
+	 * @return responsebody
+	 * **/
 	
-	
-	
+	@GetMapping("/report/static/{name}.jpg")
+	public ResponseEntity<byte[]> getStaticImage(@PathVariable("name") String name)throws IOException{
+		 String root="src/main/resources/static/img/report/";
+		 root=root+name+".jpg";
+         		
+		 File img=new File(root);
+         if(img.exists()) {
+		 return ResponseEntity
+				.ok()
+				.contentType(MediaType.valueOf(FileTypeMap.getDefaultFileTypeMap().getContentType(img)))
+				.body(Files.readAllBytes(img.toPath()));  
+         }
+         else {
+        	 System.out.println("BAD FILE IN SERVER,PLEASE RECOVER SOON!");
+        	 return null;
+         }
+	}
 	
 	
 	
