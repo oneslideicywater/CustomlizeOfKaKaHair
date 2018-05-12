@@ -1,9 +1,17 @@
 package com.oneslide.RestfulCheck.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,6 +19,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.oneslide.RestfulCheck.Input.CustomerForm;
@@ -22,7 +32,7 @@ import com.oneslide.RestfulCheck.service.ProfileService;
 
 
 //RESTful注解能够省很多麻烦
-@RestController
+@Controller
 
 public class CustomerController {
 	public CustomerController(CustomerService customerService, AnalysisService analysisService) {
@@ -37,70 +47,51 @@ public class CustomerController {
     @Autowired
     AnalysisService analysisService;
     
+    @RequestMapping(path="/customize")
+	  public String showform() {
+		  
+		  return "consult";
+	  }
     
     
     
     
-    
-    
-    
-    
-    
-    
-    /**
-	 * @StateImport
-	 *     CustomerInformation
-	 * @StateExport
-	 * 
-	 * **/
-	
-	
-	@RequestMapping(path="/customer/{id}",produces="application/json")
-	public Customer returnIdKnownCustomer(@PathVariable("id") long id,Model model) {
-		Customer customer=customerService.getCustomer(id);
-		return customer;
-	}
-	
-	
-	@RequestMapping(path="/customer/{id}/advice",produces="application/json")
-	public Report returnadvice(@PathVariable("id") long id,Model model) {
-		
-		double bmi=analysisService.calculateBMI(id);
-		
-		String advice=analysisService.BMIAdvice(bmi);
-		Report report=new Report();
-		report.setAdvice(advice);
-		report.setBMI(bmi);
-		return report;
-	}
-	
-    /**
-     * JSON test
-     * */
-	@RequestMapping(path="/customer/{id}/report",produces="application/json",consumes="application/json")
-	public Report advice(@PathVariable("id") long id,@RequestBody CustomerForm input) {
-		
-		double bmi=analysisService.calculateBMI(id);
-		
-		String advice=analysisService.BMIAdvice(bmi);
-		Report report=analysisService.reportStatic(input);
-		report.setAdvice(advice);
-		report.setBMI(bmi);
-		return report;
-	}
-	
-	/*
+   /*
 	 * 测试Controller,测试点，正确获取表单信息
 	 * 
 	 * 
 	 * **/
-	@RequestMapping(path="/customer/inputTest",produces="application/json",consumes="application/json")
-	public CustomerForm adviceTest(@RequestBody CustomerForm input) {
-		
-	
+	@RequestMapping(path="/customize/inputTest",produces="application/json",consumes="application/json")
+	public @ResponseBody CustomerForm adviceTest(@RequestBody CustomerForm input,HttpSession session) {
+		System.out.println("I am Executed");
+	    System.out.println(input);
 		return input;
 	}
 	
+	/*跳转到report*/
+	  @RequestMapping(path="/customize/report",consumes="application/json")
+	  public String TurnReport(HttpServletResponse response,@RequestBody @Valid CustomerForm formInput,HttpSession session) {
+		  
+		 // redirectAttribute.addFlashAttribute("input",formInput); 
+		  session.setAttribute("input", formInput);
+		  System.out.println(formInput);
+		  return "redirect:/customize/showreport";
+		   
+	  }
+	  @ResponseStatus(HttpStatus.OK)
+	  @RequestMapping(path="/customize/showreport")
+	  public ResponseEntity<?> TurntoReport() {
+		  
+		   return ResponseEntity.ok("report success");
+		   
+	  }
+	  @ResponseStatus(HttpStatus.OK)
+	  @RequestMapping(path="/customize/reportshow")
+	  public String TurntoReport2() {
+		  
+		   return "report";
+		   
+	  }
 	
 	/**
 	 * @StateImport

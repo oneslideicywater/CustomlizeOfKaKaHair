@@ -39,11 +39,7 @@ public class CustomerFormController {
 	  @Autowired
 	  AnalysisService analysisService;
 	  
-	  @RequestMapping(path="/customize")
-	  public String showform() {
-		  
-		  return "consult";
-	  }
+	
 	  //展示用户报告,前端进入口
 	  
 	  
@@ -52,20 +48,7 @@ public class CustomerFormController {
 	   * 
 	   * consult.html want to send to report.html
 	   * */
-	  @RequestMapping(path="/customize/report",consumes="application/json")
-	  public void TurnReport(HttpServletResponse response,@RequestBody @Valid CustomerForm formInput,HttpSession session) {
-		  
-		 // redirectAttribute.addFlashAttribute("input",formInput); 
-		  session.setAttribute("input", formInput);
-		  try {
-			response.sendRedirect("/customize/report/data");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		  //测试之后，改为report
-		  
-	  }
+	
 	  /**
 	  @RequestMapping(path="/customize/report/datatest",produces="application/json")
 	  public CustomerForm reporttest(HttpSession session) {
@@ -92,6 +75,12 @@ public class CustomerFormController {
 		 long id=1; //虚拟ID，id在静默登陆时存入
 		 
 		 
+		 //将用户输入的数据转入数据库
+		 Customer cus=customerService.getCustomer(id);
+		 cus=form.convertToCustomer(cus);
+		 customerService.saveCustomer(cus);
+		 
+		 
 		 //通过ID计算BMI
 		double bmi=analysisService.calculateBMI(id);
 			
@@ -100,19 +89,24 @@ public class CustomerFormController {
 		report.setAdvice(advice);
 		report.setBMI(bmi);
 		report.setAge(form.getAge()+"岁");
-        report.setStature(form.getStature()*100+"cm");
+        report.setStature(form.getStature()+"cm");
         report.setWeight(form.getWeight()+"kg");
 		//计算推荐发型
 		List<Profile> profilelist=profileService.select(form.getGender(),form.getFavorStyle(), form.getFeature());
 		
 		List<String> listHairCut=new ArrayList<String>();
 		for(int i=0;i<profilelist.size();i++) {
-			listHairCut.add(profilelist.get(i).getImage());
+			listHairCut.add("/src/main/resources/templates/imgDB/"+profilelist.get(i).getId());
 		}
 		report.setHaircutURL(listHairCut);
 		
 		return report;
 	  }
+	  
+	  
+	  
+	  
+	  
 	  
 	  
 	  @RequestMapping(path="/sessiontest")

@@ -14,7 +14,8 @@ public class WechatAPP {
 	 //APPSecret
 	 private static String SECRET="0afca626381e6dd3874e95492fa0c77a";
 	 
-	 private static String DOMAIN="http://b8k0j2.cn";
+	 private static String DOMAIN="http://www.kakatohair.com/";
+	 
 
 	 public static String getAPP_ID() {
 		return APP_ID;

@@ -5,6 +5,9 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.oneslide.RestfulCheck.entity.Customer;
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CustomerForm {
 
 
@@ -14,7 +17,7 @@ public class CustomerForm {
 
 	//性别
 	@NotNull
-	private int gender;
+	private boolean gender;
 	
 	//年龄
 	@NotNull
@@ -50,16 +53,9 @@ public class CustomerForm {
 	private int hairVolume;
 	@NotNull
 	//喜欢的风格
-	@Size(min=1,max=3)
+	@Size(min=1,max=5)
 	private String favorStyle;
 
-	public int getGender() {
-		return gender;
-	}
-
-	public void setGender(int gender) {
-		this.gender = gender;
-	}
 
 	public int getAge() {
 		return age;
@@ -142,7 +138,35 @@ public class CustomerForm {
 		this.hairVolume = hairVolume;
 	}
 
+    public Customer convertToCustomer(Customer customer) {
+    	customer.setAge(this.getAge());
+    	customer.setStature(this.getStature()/100);
+    	customer.setWeight(this.getWeight());
+    	customer.setComplexion(this.getComplexion());
+    	customer.setSomatotype(this.getSomatotype());
+    	customer.setFeature(this.getFeature());
+    	customer.setFavorStyle(this.getFavorStyle());
+    	customer.setHairOilness(this.getHairOilness());
+    	customer.setHairToughness(this.getHairToughness());
+    	customer.setHairVolume(this.getHairVolume());
+    	return customer;
+    }
 
+	public boolean getGender() {
+		return this.gender;
+	}
+
+	public void setGender(boolean xingbie) {
+		this.gender = xingbie;
+	}
+
+	@Override
+	public String toString() {
+		return "CustomerForm [gender=" + gender + ", age=" + age + ", stature=" + stature + ", weight=" + weight
+				+ ", complexion=" + complexion + ", somatotype=" + somatotype + ", feature=" + feature
+				+ ", hairOilness=" + hairOilness + ", hairToughness=" + hairToughness + ", hairVolume=" + hairVolume
+				+ ", favorStyle=" + favorStyle + "]";
+	}
 
 	
 }

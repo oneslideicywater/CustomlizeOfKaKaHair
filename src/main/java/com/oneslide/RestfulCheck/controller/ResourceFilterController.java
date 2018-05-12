@@ -49,7 +49,7 @@ public class ResourceFilterController {
 	
 	//暴露文件为一个URL地址
 	
-	@GetMapping("/report/img/{id}.jpg")
+	@GetMapping("/src/main/resources/templates/imgDB/{id}")
 	public ResponseEntity<byte[]> getImage(@PathVariable("id") long id) throws IOException{
 		
 		Profile profile=profileService.findProfileById(id);

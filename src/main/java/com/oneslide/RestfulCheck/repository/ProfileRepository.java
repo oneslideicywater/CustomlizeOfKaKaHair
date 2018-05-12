@@ -12,13 +12,22 @@ import com.oneslide.RestfulCheck.entity.Profile;
 @Repository
 @Transactional
 public interface ProfileRepository extends JpaRepository<Profile,Long>{
-    //严格注意空格，换行 ,会自动默认gender为boolean类型
-	@Query("select pro from Profile pro where "
-			+ "pro.gender=?#{[0]} "
-			+ "and pro.style=?#{[1]} "
-			+ "and pro.feature=?#{[2]}")
-	List<Profile> Qulified(boolean gender,String style,String feature);
+  
     
+	
+	/**
+	 * @Query("from User user where user.email like %?1%")
+	 * **/
+	@Query("from Profile profile where profile.gender=?1"
+			+ " and profile.style like %?2%"
+			+ " and profile.feature=?3")
+	List<Profile> QulifiedV1(boolean gender,String style,String feature);
+	
+	@Query("from Profile profile where profile.gender=?1"
+			+ " and profile.feature=?2")
+	List<Profile> QulifiedV2(boolean gender,String feature);
+	
+	
 	List<Profile> findByGender(boolean gender);
 	
 	//List<Profile> findByGenderAndStyle(int gender,String style);

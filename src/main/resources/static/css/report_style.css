@@ -2,10 +2,18 @@ img{
 	width: 100%;
 }
 *{
-	font-family: "微软雅黑";
+	font-family: "Microsoft YaHei"
 }
 html{
 	background-color: #ffffff;
+}
+a{
+	color: #b5b5b5;
+	text-decoration: none;
+}
+a:hover{
+	color: #b5b5b5;
+	text-decoration: none;
 }
 .col-md-4 {
     width: 33.33333333%;

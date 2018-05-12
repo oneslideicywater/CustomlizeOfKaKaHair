@@ -68,6 +68,6 @@ function requset(str)
       document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
     }
   }
-  xmlhttp.open("GET","/try/ajax/getcustomer.php?q="+str,true);//连接需要修改
+  xmlhttp.open("GET","/try/ajax/getcustomer.php?q="+str,true);
   xmlhttp.send();
 }

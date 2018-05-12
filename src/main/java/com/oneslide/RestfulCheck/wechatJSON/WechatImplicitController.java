@@ -75,6 +75,7 @@ public class WechatImplicitController {
 			                  @RequestParam("state")String state,
 			                  HttpSession session) {
 		if(code.isEmpty()) {return "error";}
+		
 		String prepareURL=WechatAPP.startInAuthCodeGenerator(code);
 		//对URL进行编码 
 		String readyURL=WechatAPP.encodeValue(prepareURL);
@@ -98,7 +99,7 @@ public class WechatImplicitController {
 				if(customer.equals(null)) {
 					//用户授权登陆页面
 					//查找不到,返回到登陆页面
-					return "authorization";
+					return "login";
 				}else {
 					//查找到
 					session.setAttribute("id",customer.getId());

@@ -26,14 +26,24 @@ public class ProfileService {
 	ProfileRepository profileRepository;
 	
 	//筛选算法，通过性别，风格，脸型
-	public List<Profile> select(int gender,String style,String feature){
-	     List<Profile> list=profileRepository.Qulified(gender==1, style, feature);
+	public List<Profile> select(boolean gender,String style,String feature){
+	     List<Profile> list=profileRepository.QulifiedV1(gender, style, feature);
 	     
 	     if(list.size()<=5) {
 	         //放宽条件进行查询
-	    	 list=profileRepository.findByGender(gender==1);
+	    	 //二级筛选
+	    	 list=profileRepository.QulifiedV2(gender, feature);
 	    	 if(list.size()<=5) {
-	    		 return list;
+	    		  
+	    		 //三级筛选
+	    		 list=profileRepository.findByGender(gender);
+	    		  if(list.size()<=5) {
+	    			  return list;
+	    		  }else {
+	    			  return this.truncateProfile(list);
+	    		  }
+	    		  
+	    		  
 	    	 }else {
 	    		 return this.truncateProfile(list);
 	    	 }

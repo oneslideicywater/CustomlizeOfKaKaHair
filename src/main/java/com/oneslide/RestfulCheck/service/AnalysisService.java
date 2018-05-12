@@ -87,7 +87,7 @@ public class AnalysisService {
     	  Report temp=new Report();
     	//  String root="/report/static/";
     	  //如果是女人
-    	  if(input.getGender()==0) {
+    	  if(!input.getGender()) {
     		  //女生脸型
     		 temp.setFeatureURL(this.AidReportStatic("fgirl",input.getFeature()));
     		 //女生体型
@@ -97,7 +97,7 @@ public class AnalysisService {
     		 
     		
     	  }
-    	  if(input.getGender()==1) {
+    	  if(input.getGender()) {
     		 
     		  temp.setFeatureURL(this.AidReportStatic("fboy",input.getFeature()));
     		  temp.setSomatotypeURL(this.AidReportStatic("sboy", input.getSomatotype()));
