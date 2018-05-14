@@ -15,8 +15,13 @@ import com.oneslide.RestfulCheck.repository.CustomerRepository;
 @Service
 public class CustomerService {
      
-	public CustomerService(CustomerRepository customerRepository) {
+	public CustomerService() {
 		super();
+	}
+
+
+	public CustomerService(CustomerRepository customerRepository) {
+		
 		this.customerRepository = customerRepository;
 	}
 
