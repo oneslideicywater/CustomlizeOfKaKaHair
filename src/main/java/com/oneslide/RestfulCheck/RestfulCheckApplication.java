@@ -21,7 +21,8 @@ import com.oneslide.RestfulCheck.storage.StorageService;
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, DataSourceTransactionManagerAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
 @EnableConfigurationProperties(StorageProperties.class)
 public class RestfulCheckApplication extends SpringBootServletInitializer{
-
+  
+	
 	public static void main(String[] args) throws Exception{
 		SpringApplication.run(RestfulCheckApplication.class, args);
 	}
