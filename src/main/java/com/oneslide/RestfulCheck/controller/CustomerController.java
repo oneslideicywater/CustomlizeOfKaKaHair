@@ -54,19 +54,6 @@ public class CustomerController {
 	  }
     
     
-    
-    
-   /*
-	 * 测试Controller,测试点，正确获取表单信息
-	 * 
-	 * 
-	 * **/
-	@RequestMapping(path="/customize/inputTest",produces="application/json",consumes="application/json")
-	public @ResponseBody CustomerForm adviceTest(@RequestBody CustomerForm input,HttpSession session) {
-		System.out.println("I am Executed");
-	    System.out.println(input);
-		return input;
-	}
 	
 	/*跳转到report*/
 	  @RequestMapping(path="/customize/report",consumes="application/json")

@@ -23,23 +23,23 @@ $(document).ready(function() {
 		gender = index + 1
 		if(index == 0) {
 			$("#xb").text("性别：男")
-			imgs[0].src = "/static/img/风格/fg_1.png"
-			imgs[1].src = "/static/img/风格/fg_2.png"
-			imgs[2].src = "/static/img/风格/fg_3.png"
-			imgs[3].src = "/static/img/风格/fg_4.png"
-			imgs[4].src = "/static/img/风格/fg_5.png"
-			imgs[5].src = "/static/img/风格/fg_6.png"
+			imgs[0].src = "img/风格/fg_1.png"
+			imgs[1].src = "img/风格/fg_2.png"
+			imgs[2].src = "img/风格/fg_3.png"
+			imgs[3].src = "img/风格/fg_4.png"
+			imgs[4].src = "img/风格/fg_5.png"
+			imgs[5].src = "img/风格/fg_6.png"
 			img.innerHTML = "<img class='img' src='img/2_03.jpg'/>"
 			$("#fs").css("padding", "0")
 
 		} else {
 			$("#xb").text("性别：女")
-			imgs[0].src = "/static/img/风格/fgnv1.png"
-			imgs[1].src = "/static/img/风格/fgnv2.png"
-			imgs[2].src = "/static/img/风格/fgnv3.png"
-			imgs[3].src = "/static/img/风格/fgnv4.png"
-			imgs[4].src = "/static/img/风格/fgnv5.png"
-			imgs[5].src = "/static/img/风格/fgnv6.png"
+			imgs[0].src = "img/风格/fgnv1.png"
+			imgs[1].src = "img/风格/fgnv2.png"
+			imgs[2].src = "img/风格/fgnv3.png"
+			imgs[3].src = "img/风格/fgnv4.png"
+			imgs[4].src = "img/风格/fgnv5.png"
+			imgs[5].src = "img/风格/fgnv6.png"
 			img.innerHTML = "<img class='img' src='img/fsx.png'/>"
 			$("#fs").css("padding", "0")
 		}
@@ -60,23 +60,23 @@ $(document).ready(function() {
 		gender = index
 		if(index == 0) {
 			$("#xb").text("性别：男")
-			imgs[0].src = "/static/img/风格/fg_1.png"
-			imgs[1].src = "/static/img/风格/fg_2.png"
-			imgs[2].src = "/static/img/风格/fg_3.png"
-			imgs[3].src = "/static/img/风格/fg_4.png"
-			imgs[4].src = "/static/img/风格/fg_5.png"
-			imgs[5].src = "/static/img/风格/fg_6.png"
+			imgs[0].src = "img/风格/fg_1.png"
+			imgs[1].src = "img/风格/fg_2.png"
+			imgs[2].src = "img/风格/fg_3.png"
+			imgs[3].src = "img/风格/fg_4.png"
+			imgs[4].src = "img/风格/fg_5.png"
+			imgs[5].src = "img/风格/fg_6.png"
 			img.innerHTML = "<img class='img' src='img/2_03.jpg'/>"
 			$("#fs").css("padding", "0")
 
 		} else {
 			$("#xb").text("性别：女")
-			imgs[0].src = "/static/img/风格/fgnv1.png"
-			imgs[1].src = "/static/img/风格/fgnv2.png"
-			imgs[2].src = "/static/img/风格/fgnv3.png"
-			imgs[3].src = "/static/img/风格/fgnv4.png"
-			imgs[4].src = "/static/img/风格/fgnv5.png"
-			imgs[5].src = "/static/img/风格/fgnv6.png"
+			imgs[0].src = "img/风格/fgnv1.png"
+			imgs[1].src = "img/风格/fgnv2.png"
+			imgs[2].src = "img/风格/fgnv3.png"
+			imgs[3].src = "img/风格/fgnv4.png"
+			imgs[4].src = "img/风格/fgnv5.png"
+			imgs[5].src = "img/风格/fgnv6.png"
 			img.innerHTML = "<img class='img' src='img/fsx.png'/>"
 			$("#fs").css("padding", "0")
 		}

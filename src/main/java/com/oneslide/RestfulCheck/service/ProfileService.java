@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.oneslide.RestfulCheck.entity.Customer;
+
 import com.oneslide.RestfulCheck.entity.Profile;
 import com.oneslide.RestfulCheck.repository.ProfileRepository;
 
