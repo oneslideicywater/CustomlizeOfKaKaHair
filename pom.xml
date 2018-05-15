@@ -5,7 +5,7 @@
 
 	<groupId>com.oneslide</groupId>
 	<artifactId>kaka</artifactId>
-	
+	<version>1</version>
 	<packaging>war</packaging>
 
 	<name>RestfulCheck</name>
@@ -41,12 +41,14 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-       <dependency>
+	
+		   <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope>
 		</dependency>
 		
+	
 		
 		 <dependency>
             <groupId>mysql</groupId>
@@ -68,8 +70,10 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            
+       
         </plugins>
     </build>
-
+     
 
 </project>

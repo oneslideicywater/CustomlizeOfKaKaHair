@@ -11,14 +11,16 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
 import com.oneslide.RestfulCheck.storage.StorageProperties;
 import com.oneslide.RestfulCheck.storage.StorageService;
 
 
+//
 
-
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, DataSourceTransactionManagerAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
+@SpringBootApplication//(exclude = { DataSourceTransactionManagerAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
 @EnableConfigurationProperties(StorageProperties.class)
 public class RestfulCheckApplication extends SpringBootServletInitializer{
   
@@ -26,6 +28,7 @@ public class RestfulCheckApplication extends SpringBootServletInitializer{
 	public static void main(String[] args) throws Exception{
 		SpringApplication.run(RestfulCheckApplication.class, args);
 	}
+	
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(RestfulCheckApplication.class);

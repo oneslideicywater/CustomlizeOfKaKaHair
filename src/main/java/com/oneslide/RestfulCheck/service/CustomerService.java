@@ -1,7 +1,6 @@
 package com.oneslide.RestfulCheck.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,8 +18,7 @@ public class CustomerService {
 		super();
 	}
 
-
-	public CustomerService(CustomerRepository customerRepository) {
+    public CustomerService(CustomerRepository customerRepository) {
 		
 		this.customerRepository = customerRepository;
 	}
